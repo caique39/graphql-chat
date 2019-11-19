@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": "w-HWdcHR",
+      "name": "Nicolette",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/andytlaw/128.jpg",
+      "createdAt": "2019-11-19T01:43:09.765Z"
+    },
+    {
+      "id": "4JZOTBUi",
+      "name": "Jazmyne",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/spbroma/128.jpg",
+      "createdAt": "2019-11-19T01:43:10.655Z"
+    },
+    {
+      "id": "mgicsm-C",
+      "name": "Aubree",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/naupintos/128.jpg",
+      "createdAt": "2019-11-19T01:43:26.798Z"
+    },
+    {
+      "id": "IslrP3wp",
+      "name": "Libby",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sebashton/128.jpg",
+      "createdAt": "2019-11-19T01:43:34.289Z"
+    },
+    {
+      "id": "jF9Xsobk",
+      "name": "Neha",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/gcmorley/128.jpg",
+      "createdAt": "2019-11-19T01:43:35.203Z"
+    },
+    {
+      "id": "2UmBVDuGR",
+      "name": "Chris",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/andrea211087/128.jpg",
+      "createdAt": "2019-11-19T01:43:35.951Z"
+    },
+    {
+      "id": "KxX2g8K5",
+      "name": "Bryana",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/wesleytrankin/128.jpg",
+      "createdAt": "2019-11-19T01:43:36.911Z"
+    },
+    {
+      "id": "r7rbOlUI",
+      "name": "Hanna",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/dallasbpeters/128.jpg",
+      "createdAt": "2019-11-19T01:43:38.433Z"
+    }
+  ],
+  "messages": [
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:36.314Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:40.007Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:42.994Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:46.648Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:49.066Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:51.441Z"
+    },
+    {
+      "sender": "opa",
+      "text": "testeando",
+      "date": "2019-11-19T01:11:53.504Z"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+type Query {
+  messages(offset: Int = 0): [Message]!
+}
+
+type Mutation {
+  sendMessage(sender: String!, text: String!): Message!
+}
+
+type Subscription {
+  newMessage: Message!
+}
+
+scalar Date
+
+type Message {
+  text: String!
+  sender: String!
+  date: Date!
+}

@@ -1,0 +1,46 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": ["airbnb-base", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2017
+    },
+    "plugins": ["async-await"],
+    "rules": {
+        "async-await/space-after-async": 2,
+        "async-await/space-after-await": 2,
+        "import/no-dynamic-require": 0,
+        "arrow-body-style": 0,
+        "generator-star-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": false
+            }
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-param-reassign": [
+            "error",
+            { "props": false }
+        ]
+    }
+}

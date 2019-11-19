@@ -1,0 +1,23 @@
+type Query {
+  chats: Chat
+  user(id: ID!): User!
+}
+
+type Mutation {
+  createUser: User!
+}
+
+type Subscription {
+  newChat: Chat!
+}
+
+type User {
+  id: ID
+  name: String
+  avatar: String
+}
+
+type Chat {
+  user: User
+  messages: [Message]
+}
