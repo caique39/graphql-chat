@@ -1,14 +1,12 @@
 import React from "react";
 import { Container, Avatar, Title, Content, Subtitle } from "./atoms";
 
-function Navbar(props) {
-  const { username, userColor } = props;
-
+function Navbar({ username, userColor, avatar }) {
   return (
     <Container>
-      <Avatar />
+      <Avatar src={avatar} />
       <Content>
-        <Title>{username || "Gumy Bear"}</Title>
+        <Title>{username}</Title>
         <Subtitle>+ 25</Subtitle>
       </Content>
     </Container>

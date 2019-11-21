@@ -1,9 +1,7 @@
 import React from "react";
 import { Container, MessageText, Content, SenderName } from "./atoms";
 
-function Message(props) {
-  const { text, sender, ownMessage, color } = props;
-
+function Message({ text, sender, ownMessage, color }) {
   return (
     <Container style={ownMessage ? { justifyContent: "flex-end" } : {}}>
       <Content>

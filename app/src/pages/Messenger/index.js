@@ -2,40 +2,41 @@ import React, { useState } from "react";
 import { Container, ChatArea, WritingBox, Input, TextButton } from "./atoms";
 import Message from "../../components/Message";
 import Navbar from "../../components/Navbar";
+import { useMutation } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 
-function Messenger() {
-  const username = "Gumy Bear";
+import { useMessages } from "../../hooks";
+
+const mutationSendMessage = gql`
+  mutation sendMessage($sender: String!, $text: String!) {
+    sendMessage(sender: $sender, text: $text) {
+      date
+    }
+  }
+`;
+
+function Messenger({ user }) {
+  const { avatar, name } = user || {};
 
   const [currentMessage, setCurrentMessage] = useState("");
+  const [sendMessage] = useMutation(mutationSendMessage);
 
-  const [messages, setMessages] = useState([
-    { text: "Olá, bro", sender: "Gumy Bear", color: "red" },
-    {
-      text:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-      sender: "Gumy Bear2",
-      color: "blue"
-    },
+  const messages = useMessages();
 
-    { text: "Olá, bro", sender: "Gumy Bear3", color: "orange" }
-  ]);
-
-  const sendMessage = message => {
-    setMessages([
-      ...messages,
-      { text: message, sender: "Gumy Bear", ownMessage: true, color: "red" }
-    ]);
-
-    setCurrentMessage("");
-  };
+  const createMessage = () =>
+    sendMessage({ variables: { sender: user.name, text: currentMessage } });
 
   const handleChangeMessage = event => setCurrentMessage(event.target.value);
 
   return (
     <Container>
-      <Navbar />
+      <Navbar avatar={avatar} username={name} />
 
-      <ChatArea>{messages.map(Message)}</ChatArea>
+      <ChatArea>
+        {messages.map(({ sender, text }) => (
+          <Message sender={sender} text={text} ownMessage={sender === name} />
+        ))}
+      </ChatArea>
 
       <WritingBox>
         <Input
@@ -45,9 +46,7 @@ function Messenger() {
           placeholder="Mensagem"
           type="text"
         ></Input>
-        <TextButton onClick={() => sendMessage(currentMessage)}>
-          Enviar
-        </TextButton>
+        <TextButton onClick={() => createMessage()}>Enviar</TextButton>
       </WritingBox>
     </Container>
   );

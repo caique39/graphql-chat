@@ -6,7 +6,7 @@ export const Container = styled.nav`
   display: flex;
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.img`
   height: 40px;
   width: 40px;
   background-color: #bdbdbd;
