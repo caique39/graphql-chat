@@ -10,14 +10,12 @@ const resolvers = {
       { db },
       info
     ): Promise<IMessage[]> => {
-      const { offset } = args
-      const limit = 30
+      // const { offset } = args
+      // const limit = 30
 
       const messages = db
         .get('messages')
-        .orderBy('date', 'desc')
-        .slice(offset)
-        .take(limit)
+        .orderBy('date', 'asc')
         .value()
 
       return messages
