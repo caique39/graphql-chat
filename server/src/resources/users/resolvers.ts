@@ -20,6 +20,7 @@ const resolvers = {
         id: shortid.generate(),
         name: faker.name.firstName(),
         avatar: faker.internet.avatar(),
+        phone: faker.phone.phoneNumber('(77) 9####-#####'),
         createdAt: new Date()
       }
 
