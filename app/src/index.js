@@ -19,12 +19,12 @@ const URL = "graphql-subscription-chat.herokuapp.com";
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: `http://${URL}/graphql`
+  uri: `https://${URL}/graphql`
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: `ws://${URL}`,
+  uri: `wss://${URL}`,
   options: {
     reconnect: true
   }
