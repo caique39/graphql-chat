@@ -19,8 +19,13 @@ export default function ChatArea({ messages, username }) {
 
   return (
     <Container>
-      {messages.map(({ text, sender }) => (
-        <Message text={text} sender={sender} ownMessage={sender === username} />
+      {messages.map(({ text, sender }, index) => (
+        <Message
+          key={index}
+          text={text}
+          sender={sender}
+          ownMessage={sender === username}
+        />
       ))}
 
       <div ref={lastElementRef}></div>
