@@ -1,0 +1,48 @@
+Title - Constrindo um chat utilizando NodeJS e GraphQL
+
+Palavras chaves: 
+    - React
+    - NodeJS
+    - GraphQL
+    - API
+    - Realtime
+    - Tecnologias agnosticas
+    - Persistencia de dados
+    - Comunicacao assincrona
+
+Pages
+    - Por que GraphQL? Atualmente, resolve uma serie de problemas frente ao REST e tem
+      uma execelente integracao com os principais frameworks front-end do mercado
+   
+   - Por que um chat? Um chat expoe, de maneira simples, todos os recursos disponiveis no GraphQL
+
+    - Como a aplicacao foi organizada
+        - Falas sobre o front
+        - Falas sobre a comunicacao com o servidor
+        - Falas sobre o backend
+            - Escrito JavaScript
+    
+    - Demonstracao da aplicacao
+        - Living code
+        - Codigos que deixam claro ao publico
+         as principais vantagens do GraphQL. Sumarizando:
+            - Busca de dados **necessarios** do servidor 
+            - Auto documentacao
+            - Tipagem estatica
+                - Validacao
+
+            - Leitura natural
+            - Simplicidade. Tudo se resume a:
+                - Query
+                - Mututation
+                - Subscription    
+    
+    - Teste do publico
+    
+    - Perguntas
+        - Como eu monto aplicacao tal?
+        - Qual linguagem de programacao devo aprender?
+        - Voce acha que eu deveria migrar de REST para GraphQL na minha aplicacao atual
+        - Qual o futuro do GraphQL com a evolucao do HTTP?
+        - Qual banco de dados devo utilizar?
+

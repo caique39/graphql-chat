@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Introdução à APIs Web</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/night.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <style>
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4,
+      .reveal h5,
+      .reveal h6 {
+        text-transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Introdução à APIs Web</h2>
+        </section>
+        <section>
+          <section>
+            <h2>O que é uma API?</h2>
+            <i>Application Programming Interface</i>
+          </section>
+          <section>
+            <h2>Exemplos de API</h2>
+            <ul>
+              <li>API do YouTube</li>
+              <li>API de <i>Strings</i> do JavaScript</li>
+              <li>APIs do HTML5</li>
+            </ul>
+          </section>
+          <section>
+            <h3>API de Strings do JavaScript</h3>
+            <img
+              src="./lib//imgs/javascript-string-api.png"
+              alt="API de Strings do JavaScript"
+            />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>O que é uma API Web?</h2>
+          </section>
+          <section>
+            <h3>
+              Qual o meio de comunicação utilizado pelas APIs Web?
+            </h3>
+          </section>
+          <section>
+            <h3>Qual o formato de resposta?</h3>
+          </section>
+          <section>
+            <h2>Exemplos de API Web</h2>
+            <ul>
+              <li>API do TheLivery</li>
+              <li>API do Google Maps</li>
+              <li>API do Telegram</li>
+              <li>API do Chat de demonstração</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Demonstração</h2>
+          </section>
+          <section>
+            <h3>Código da aplicação</h3>
+            <img
+              src="./lib/imgs//graphql-chat-qr-code.png"
+              alt="QR Code com link do repositório"
+            />
+            <p>https://github.com/caique39/graphql-chat</p>
+          </section>
+        </section>
+        <section>
+          <h2>Obrigado!</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
