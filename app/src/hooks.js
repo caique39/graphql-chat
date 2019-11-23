@@ -1,81 +1,79 @@
 import { useEffect, useState } from "react";
-import { useMutation, useSubscription, useQuery } from "@apollo/react-hooks";
-import UserModel from "./models/User";
+import { useMutation, useQuery, useSubscription } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import UserModel from "./models/User";
 
 const mutationCreateUser = gql`
-  mutation createUser {
+  mutation {
     createUser {
-      id
       name
+      id
       avatar
     }
   }
 `;
 
-const subscriptionNewMessage = gql`
-  subscription newMessage {
-    newMessage {
-      text
-      sender
+const queryMessages = gql`
+  query {
+    messages {
       date
+      sender
+      text
     }
   }
 `;
 
-const queryMessages = gql`
-  query messages {
-    messages {
-      text
-      sender
+const subscriptionMessage = gql`
+  subscription {
+    newMessage {
       date
+      sender
+      text
     }
   }
 `;
 
 export function useUser() {
   const [user, setUser] = useState(UserModel.get());
-
-  const [createUser, { data, error, loading }] = useMutation(
+  const [createUser, { data, loading, error }] = useMutation(
     mutationCreateUser
   );
 
+  const { createUser: newUser } = data || {};
+
   useEffect(() => {
     if (!user) createUser();
-  }, [createUser, user]);
+  }, []);
 
   useEffect(() => {
-    if (data) {
-      const { createUser: userCreated } = data;
-
-      setUser(userCreated);
-      UserModel.save(userCreated);
+    if (newUser) {
+      UserModel.save(newUser);
+      setUser(newUser);
     }
-  }, [data]);
+  }, [newUser]);
 
-  return { user: user, error, loading };
+  return { user, loading, error };
 }
 
 export function useMessages() {
-  const [messages, setMessages] = useState([]);
-
-  const { data: queryData = {} } = useQuery(queryMessages);
-
-  useEffect(() => {
-    const newMessages = queryData.messages || [];
-
-    setMessages(newMessages.reverse());
-  }, [queryData.messages]);
-
-  const { data: subData = {} } = useSubscription(subscriptionNewMessage);
+  const [localMessages, setLocalMessages] = useState([]);
+  const { data, loading, error } = useQuery(queryMessages);
+  const { messages } = data || {};
 
   useEffect(() => {
-    const newMessage = subData.newMessage;
-
-    if (newMessage) {
-      setMessages(messages => [...messages, newMessage]);
+    if (messages) {
+      setLocalMessages(messages);
     }
-  }, [subData.newMessage]);
+  }, [messages]);
 
-  return messages;
+  const { data: subscriptionData } = useSubscription(subscriptionMessage);
+  const { newMessage } = subscriptionData || {};
+
+  useEffect(() => {
+    if (newMessage) {
+      setLocalMessages(messages => [...messages, newMessage]);
+    }
+  }, [newMessage]);
+
+  return { messages: localMessages, loading, error };
 }

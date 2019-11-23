@@ -1,12 +1,13 @@
 import React from "react";
 import Messenger from "./pages/Messenger";
+
 import { useUser } from "./hooks";
 
 function App() {
-  const { user, loading, error } = useUser();
+  const { user, error, loading } = useUser();
 
-  if (loading) return <>Loading...</>;
-  if (error) return <>Error</>;
+  if (loading) return <h1>Loading...</h1>;
+  if (error || !user) return <h1>Error</h1>;
 
   return <Messenger user={user} />;
 }

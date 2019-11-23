@@ -1,55 +1,88 @@
-import React, { useState } from "react";
-import { Container, ChatArea, WritingBox, Input, TextButton } from "./atoms";
-import Message from "../../components/Message";
+import React, { useState, useRef } from "react";
+import styled from "styled-components";
+import ChatArea from "../../components/ChatArea";
 import Navbar from "../../components/Navbar";
 import { useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
-
 import { useMessages } from "../../hooks";
+import gql from "graphql-tag";
+
+const Container = styled.div`
+  height: ${window.innerHeight}px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const WritingBox = styled.form`
+  display: flex;
+  padding: 8px 16px;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  font-size: 16px;
+  outline: none;
+  background-color: #eee;
+  border-radius: 8px;
+  border: none;
+  padding-left: 12px;
+`;
+
+const TextButton = styled.button`
+  padding: 12px;
+  background-color: #eee;
+  border: none;
+  color: #212121;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 8px;
+`;
 
 const mutationSendMessage = gql`
   mutation sendMessage($sender: String!, $text: String!) {
     sendMessage(sender: $sender, text: $text) {
       date
+      sender
+      text
     }
   }
 `;
 
-function Messenger({ user }) {
-  const { avatar, name } = user || {};
+export default function Messenger({ user }) {
+  const { name, avatar } = user;
 
-  const [currentMessage, setCurrentMessage] = useState("");
   const [sendMessage] = useMutation(mutationSendMessage);
 
-  const messages = useMessages();
+  const [newMessage, setNewMessage] = useState("");
+  const { messages } = useMessages();
 
-  const createMessage = () =>
-    sendMessage({ variables: { sender: user.name, text: currentMessage } });
+  const inputRef = useRef(null);
 
-  const handleChangeMessage = event => setCurrentMessage(event.target.value);
+  const createMessage = text => {
+    inputFocus();
+    sendMessage({ variables: { sender: name, text } });
+    setNewMessage("");
+  };
+
+  const inputFocus = () => inputRef.current.focus();
 
   return (
     <Container>
-      <Navbar avatar={avatar} username={name} />
-
-      <ChatArea>
-        {messages.map(({ sender, text }) => (
-          <Message sender={sender} text={text} ownMessage={sender === name} />
-        ))}
-      </ChatArea>
-
-      <WritingBox>
+      <Navbar username={name} phone="77 988597089" avatar={avatar}></Navbar>
+      <ChatArea messages={messages} username={name}></ChatArea>
+      <WritingBox
+        onSubmit={e => {
+          e.preventDefault();
+          createMessage(newMessage);
+        }}
+      >
         <Input
-          value={currentMessage}
-          onChange={handleChangeMessage}
-          autoFocus
+          value={newMessage}
+          onChange={event => setNewMessage(event.target.value)}
           placeholder="Mensagem"
-          type="text"
-        ></Input>
-        <TextButton onClick={() => createMessage()}>Enviar</TextButton>
+          ref={inputRef}
+        />
+        <TextButton>Enviar</TextButton>
       </WritingBox>
     </Container>
   );
 }
-
-export default Messenger;

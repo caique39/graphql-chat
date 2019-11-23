@@ -1,11 +1,11 @@
 const STORAGE_KEY = "USER";
 
-function save(user) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
-}
+export default {
+  get() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+  },
 
-function get() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY));
-}
-
-export default { save, get };
+  save(user) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+  }
+};
