@@ -15,7 +15,7 @@ import { HttpLink } from "apollo-link-http";
 import { WebSocketLink } from "apollo-link-ws";
 import { getMainDefinition } from "apollo-utilities";
 
-const URL = "localhost:3001";
+const URL = "graphql-subscription-chat.herokuapp.com";
 
 // Create an http link:
 const httpLink = new HttpLink({
