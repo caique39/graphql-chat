@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "NODE_ENV=development node src/index.js",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "faker": "^4.1.0",
+    "graphql-yoga": "1.18.3",
+    "lowdb": "^1.0.0",
+    "merge-graphql-schemas": "^1.7.3",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.19.1"
+  }
+}

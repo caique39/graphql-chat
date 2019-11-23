@@ -1,18 +1,8 @@
-import { IMessage } from './model'
-
 const NEW_MESSAGE = 'NEW_MESSAGE'
 
 const resolvers = {
   Query: {
-    messages: async (
-      root,
-      args: { offset: number },
-      { db },
-      info
-    ): Promise<IMessage[]> => {
-      // const { offset } = args
-      // const limit = 30
-
+    messages: async (root, args, { db }) => {
       const messages = db
         .get('messages')
         .orderBy('date', 'asc')
@@ -22,11 +12,7 @@ const resolvers = {
     }
   },
   Mutation: {
-    sendMessage: async (
-      _,
-      args: { sender: string; text: string },
-      { db, pubsub }
-    ) => {
+    sendMessage: async (_, args, { db, pubsub }) => {
       const { sender, text } = args
       const messageDoc = {
         sender,
@@ -45,11 +31,11 @@ const resolvers = {
   },
   Subscription: {
     newMessage: {
-      subscribe: async (root, args, { pubsub }, info) => {
+      subscribe: async (root, args, { pubsub }) => {
         return pubsub.asyncIterator(NEW_MESSAGE)
       }
     }
   }
 }
 
-export default resolvers
+module.exports = resolvers
