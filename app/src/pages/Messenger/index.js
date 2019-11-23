@@ -48,7 +48,7 @@ const mutationSendMessage = gql`
 `;
 
 export default function Messenger({ user }) {
-  const { name, avatar } = user;
+  const { name, avatar, phone } = user;
 
   const [sendMessage] = useMutation(mutationSendMessage);
 
@@ -67,7 +67,7 @@ export default function Messenger({ user }) {
 
   return (
     <Container>
-      <Navbar username={name} phone="77 988597089" avatar={avatar}></Navbar>
+      <Navbar username={name} phone={phone} avatar={avatar}></Navbar>
       <ChatArea messages={messages} username={name}></ChatArea>
       <WritingBox
         onSubmit={e => {

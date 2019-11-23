@@ -9,6 +9,7 @@ const mutationCreateUser = gql`
       name
       id
       avatar
+      phone
     }
   }
 `;
