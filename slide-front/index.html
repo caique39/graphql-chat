@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <!-- Apresentação -->
+          <h2>Aplicação com React + Graphql</h2>
+          <p>
+            <small>Kelvin Chaves</small>
+          </p>
+        </section>
+
+        <section>
+          <section>
+            <h2>Frontend + Backend</h2>
+          </section>
+          <section>
+            <img height="400" src="./img/backend-for-frontend.png" />
+          </section>
+          <section>
+            <h2>Chat</h2>
+            <img height="540" data-src="./img/messenger-screenshot.png" />
+          </section>
+          <section>
+            <ol>
+              <li>CRIO usuário se não existente</li>
+              <li>PEGO mensagens anteriores</li>
+              <li>ENVIA mensagem</li>
+              <li>Receber novas mensagens</li>
+            </ol>
+          </section>
+          <section>
+            <p>Tem mensagem nova?</p>
+            <p>Tem mensagem nova?</p>
+            <p>Tem mensagem nova?</p>
+
+            <p>...</p>
+          </section>
+          <section>
+            <h3>Websoc... opa! Subscriptions</h3>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>HTML + CSS + JS</h2>
+            <p>
+              <small>The Saint Trinity</small>
+            </p>
+          </section>
+          <section>
+            <img src="./img/html-screenshot.png" height="500" />
+          </section>
+          <section>
+            <pre>
+              <code class="javascript">
+const messages = [{ text: "Opa", sender: "Einstein" }];
+
+for (let message of messages) {
+  printMessage(message)
+}
+
+server.on("new-message", (message) => {
+  messages.push(message);
+  printMessage(message);
+})
+
+function printMessage(message) {
+  const messageArea = document.querySelector("#message-area");
+
+  const { sender, text } = message;
+                    
+  const messageTemplate = `
+    <div class="message">
+      <span class="message__sender">${sender}</span>
+      <h3 class="message_text">${text}</h3>
+    </div>`;
+                    
+  messageArea.insertAdjacentHTML("beforeend", messageTemplate);
+} 
+              </code>
+            </pre>
+          </section>
+          <section>
+            <pre>
+                <code class="css">
+  .message {
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 12px
+  }
+
+  .message__sender {
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .message__text {
+    font-size: 16px;
+    color: #212121;
+  }
+                  
+                </code>
+              </pre>
+          </section>
+          <section>
+            <h2>Problemas</h2>
+            <ul>
+              <li>Difícil de escalar</li>
+              <li>Manutenção complicada</li>
+              <li>Inconsistência</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>React ❤️</h1>
+          </section>
+
+          <section>
+            <ul>
+              <li>Componentes</li>
+              <li>Props</li>
+              <li>Reatividade == Alteração em tempo real</li>
+              <li><code>npm install vida</code></li>
+              <li>Mágica!</li>
+            </ul>
+          </section>
+          <section>
+            <img height="600" src="./img/layout-components.png" alt="" />
+          </section>
+          <section>
+            <img height="400" src="./img/message.png" alt="" />
+          </section>
+          <section>
+            <img height="600" src="./img/message-area.png" alt="" />
+          </section>
+          <section>
+            <img height="600" src="./img/messenger.png" alt="" />
+          </section>
+          <section>
+            <h2>Graphql + Apollo</h2>
+          </section>
+          <section>
+            <img height="600" src="./img/query.png" alt="" />
+          </section>
+          <section>
+            <img height="600" src="./img/hook.png" alt="" />
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
