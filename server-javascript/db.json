@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": "sDiO9IwK",
+      "name": "Nathaniel",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vc27/128.jpg",
+      "phone": "(77) 90167-98354",
+      "createdAt": "2019-11-23T04:07:35.821Z"
+    },
+    {
+      "id": "im9cVJFo",
+      "name": "Athena",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hellofeverrrr/128.jpg",
+      "phone": "(77) 99957-03105",
+      "createdAt": "2019-11-23T04:07:40.769Z"
+    }
+  ],
+  "messages": [
+    {
+      "sender": "testando",
+      "text": "Opa",
+      "date": "2019-11-23T04:08:04.101Z"
+    },
+    {
+      "sender": "testando",
+      "text": "Opa",
+      "date": "2019-11-23T04:08:18.444Z"
+    },
+    {
+      "sender": "testando",
+      "text": "heheh",
+      "date": "2019-11-23T04:08:34.558Z"
+    }
+  ]
+}
